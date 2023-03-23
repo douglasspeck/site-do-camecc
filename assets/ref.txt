@@ -1,0 +1,37 @@
+import math
+
+# Define a constante K, que controla a sensibilidade da mudança de pontuação
+K = 32
+
+# Define um dicionário para armazenar as pontuações iniciais de cada jogador
+pontuacoes = {
+    "Jogador 1": 1000,
+    "Jogador 2": 1000,
+    "Jogador 3": 1000,
+    "Jogador 4": 1000
+}
+
+# Define a função que calcula a mudança de pontuação após cada partida
+def atualizar_pontuacoes(pontuacoes, jogador1, jogador2, pontuacao1, pontuacao2, vencedor):
+    # Calcula a probabilidade de vitória de cada jogador com base em suas pontuações atuais
+    prob1 = 1 / (1 + math.pow(10, (pontuacoes[jogador2] - pontuacoes[jogador1]) / 400))
+    prob2 = 1 / (1 + math.pow(10, (pontuacoes[jogador1] - pontuacoes[jogador2]) / 400))
+    
+    # Atualiza as pontuações com base no resultado da partida
+    if vencedor == jogador1:
+        pontuacoes[jogador1] += K * (1 - prob1)
+        pontuacoes[jogador2] += K * (0 - prob2)
+    elif vencedor == jogador2:
+        pontuacoes[jogador1] += K * (0 - prob1)
+        pontuacoes[jogador2] += K * (1 - prob2)
+    
+    return pontuacoes
+
+# Simula algumas partidas para testar o sistema de matchmaking
+pontuacoes = atualizar_pontuacoes(pontuacoes, "Jogador 1", "Jogador 2", 10, 5, "Jogador 1")
+pontuacoes = atualizar_pontuacoes(pontuacoes, "Jogador 3", "Jogador 1", 8, 8, "Jogador 1")
+pontuacoes = atualizar_pontuacoes(pontuacoes, "Jogador 4", "Jogador 2", 6, 9, "Jogador 2")
+
+# Imprime as pontuações atualizadas de cada jogador após as partidas
+for jogador, pontuacao in pontuacoes.items():
+    print(f"{jogador}: {pontuacao}")
