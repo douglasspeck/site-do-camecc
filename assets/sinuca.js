@@ -4,7 +4,7 @@ const RATING_MIN = 100;
 const DISPARIDADE = 400;
 
 class Jogador {
-    constructor(id, nome="") {
+    constructor(id, nome=id) {
         this.id = id;
         this.rating = RATING_BASE;
         this.nome = nome;
