@@ -1,85 +1,28 @@
+:root {
+    --red: #ff0000;
+    --black-olive: #1f271b;
+    --mint-cream: #f1f7ed;
+    --reseda-green: #7D8570;
+    --nyanza: #e0eec6;
+    --page-bg: var(--mint-cream);
+}
+
 * {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Anybody', sans-serif;
     color: #222222;
     font-weight: 600;
 }
 
-a {
-    color: #3d00ff;
-    text-decoration: none;
-}
-
-body {
+html,body {
     width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--page-bg);
 }
 
-#loader {
-    max-width: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-}
-
-#camecc {
-    stroke: #000;
-    fill: #000;
-}
-
-#logo_1 {
-    --d: 233;
-    stroke-dasharray: var(--d);
-    animation: 3s fillSvg linear;
-}
-
-#logo_2 {
-    --d: 211;
-    stroke-dasharray: var(--d);
-    animation: 3s fillSvg linear;
-}
-
-#logo_3 {
-    --d: 260;
-    stroke-dasharray: var(--d);
-    animation: 3s fillSvg linear;
-}
-
-#logo_4 {
-    --d: 185;
-    stroke-dasharray: var(--d);
-    animation: 3s fillSvg linear;
-}
-
-#logo_5 {
-    --d: 213;
-    stroke-dasharray: var(--d);
-    animation: 3s fillSvg linear;
-    stroke: red;
-    fill: red;
-}
-
-#logo_6 {
-    --d: 147;
-    stroke-dasharray: var(--d);
-    animation: 3s fillSvg linear;
-}
-
-@keyframes fillSvg {
-    0% {
-        stroke-dashoffset: var(--d);
-        fill-opacity: 0;
-    }
-    70% {
-        stroke-dashoffset: 0;
-        fill-opacity: 0;
-    }
-    100% {
-        fill-opacity: 1;
-    }
+a {
+    color: var(--reseda-green);
+    text-decoration: none;
 }
