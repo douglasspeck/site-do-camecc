@@ -1,0 +1,127 @@
+:root {
+    --red: #FF0000;
+    --chocolate-cosmos: #53131E;
+    --claret: #6D213C;
+    --cherry-blossom-pink: #FFB7C3;
+    --mint-cream: #F1F7ED;
+    --page-bg: var(--mint-cream);
+    --default-color: #222222;
+}
+
+* {
+    font-family: 'Anybody', sans-serif;
+    color: var(--default-color);
+    font-weight: 300;
+    transition: all 0.3s linear;
+}
+
+html,body {
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--page-bg);
+    font-size: 24px;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    padding: 0;
+    margin: 0;
+    font-size: inherit;
+}
+
+p {
+    line-height: 1.25;
+}
+
+strong {
+    font-weight: bolder;
+}
+
+em {
+    font-style: normal;
+    background-color: var(--cherry-blossom-pink);
+    padding: 3px .5ch;
+    margin: -3px 0;
+}
+
+a {
+    color: var(--red);
+    font-weight: bolder;
+    text-decoration: none;
+    background: linear-gradient(var(--red), var(--red));
+    background-repeat: no-repeat;
+    transition: all .1s linear;
+    background-size: calc(100% - 2ch) 2px;
+    background-position: 1ch 100%;
+}
+
+a:hover {
+    background-size: 100% 2px;
+    background-position: 0 100%;
+}
+
+main {
+    padding: 11vh 5% 0;
+    width: 60%;
+    margin: auto;
+}
+
+section {
+    width: 100%;
+    /* min-height: 30vh; */
+}
+
+ol,ul,li {
+    padding: 0;
+    margin: 0;
+}
+
+hr {
+    margin: 5vh 0;
+}
+
+section.gallery {
+    width: 100%;
+    padding: 5vh 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+section.gallery > article {
+    width: 24vw;
+    height: 32vw;
+    background-color: var(--cherry-blossom-pink);
+    border-radius: 20px;
+}
+
+section.gallery > article > img {
+    width: 100%;
+    height: 16vw;
+}
+
+section.date-list {
+    display: flex;
+    flex-direction: column;
+}
+
+section.date-list > p {
+    margin-top: 1em;
+}
+
+section.date-list > article {
+    border: 2px solid var(--claret);
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+section.date-list > article > .date {
+    font-weight: bolder;
+    font-size: .75em;
+    color: var(--chocolate-cosmos);
+}

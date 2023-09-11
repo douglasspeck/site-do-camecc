@@ -1,0 +1,134 @@
+body > header {
+    width: 94%;
+    height: calc(5vh + 10px);
+    padding: 3vh 5%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    position: fixed;
+    z-index: 10;
+    background-color: var(--page-bg);
+    box-shadow: var(--chocolate-cosmos) 0px 0px 10px;
+}
+
+body > header a {
+    background: none;
+    color: var(--claret);
+}
+
+body > header > a {
+    padding: 5px 0;
+    height: fit-content;
+    width: fit-content;
+}
+
+#header-logo {
+    display: block;
+    fill: #000;
+    height: 5vh;
+    width: auto;
+}
+
+#header-logo > :nth-child(5) {
+    fill: var(--red);
+}
+
+body > header > nav {
+    width: 60%;
+    height: fit-content;
+}
+
+body > header > nav ul {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+    display: flex;
+}
+
+body > header > nav > ul > li {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: fit-content;
+}
+
+body > header > nav > ul > li > a {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    padding: 5px 0px 5px 5px;
+}
+
+body > header > nav > ul > li > a:hover {
+    color: var(--default-color);
+}
+
+body > header > nav > ul > li > ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px 5px 10px;
+}
+
+body > header > nav > ul > li > ul > li > a {
+    color: var(--claret);
+    font-weight: 400;
+    display: flex;
+    width: 90%;
+}
+
+body > header > nav > ul > li > ul > li > a:hover {
+    color: var(--default-color);
+}
+
+body > header > nav > ul > li > a::before,
+body > header > nav > ul > li > ul > li > a::before {
+    content: '>';
+    display: block;
+    padding: 0 1ch;
+    font-weight: 300;
+    transition: all 0.3s linear;
+}
+
+body > header > nav > ul > li:hover > a:not(:last-child)::before {
+    transform: rotate(90deg);
+}
+
+body > header > nav > ul > li > ul > li > a:hover::before {
+    animation: bounce-x 1s infinite ease-in-out;
+}
+
+@keyframes bounce-x {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(10%);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(-10%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+body > header > nav > ul > li:hover {
+    background-color: var(--cherry-blossom-pink);
+    box-shadow: var(--chocolate-cosmos) 0px 2px 5px;
+}
+
+body > header > nav > ul > li:hover > a {
+    color: #000;
+}
+
+body > header > nav > ul > li:hover > ul {
+    display: flex;
+}

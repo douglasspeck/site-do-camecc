@@ -1,28 +1,49 @@
-:root {
-    --red: #ff0000;
-    --black-olive: #1f271b;
-    --mint-cream: #f1f7ed;
-    --reseda-green: #7D8570;
-    --nyanza: #e0eec6;
-    --page-bg: var(--mint-cream);
+#homepage #banner {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10vh;
 }
 
-* {
-    font-family: 'Anybody', sans-serif;
-    color: #222222;
-    font-weight: 600;
+#homepage h1 {
+    font-size: 60px;
+    font-weight: 300;
+    padding-bottom: 0.5em;
 }
 
-html,body {
-    width: 100vw;
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    background-color: var(--page-bg);
+#homepage h1 > strong {
+    font-size: 1.5em;
 }
 
-a {
-    color: var(--reseda-green);
-    text-decoration: none;
+#homepage h1 span {
+    color: var(--red);
+    font-weight: inherit;
+}
+
+#homepage h2 {
+    font-weight: 400;
+}
+
+#homepage #banner h2 {
+    padding-top: 1em;
+}
+
+#homepage #banner h2 > a {
+    font-weight: inherit;
+}
+
+#homepage #banner ol {
+    margin-left: 5%;
+    font-size: 0.75em;
+}
+
+#homepage #banner ol > li {
+    margin-top: 1em;
+    counter-increment: list;
+}
+
+#homepage #banner ol > li::marker {
+    display: block;
+    font-weight: bolder;
+    color: var(--chocolate-cosmos);
+    content: counter(list, upper-roman) ')  ';
 }
