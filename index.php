@@ -20,17 +20,17 @@
 
         <!-- Stylesheets -->
 
-        <link rel="preload" as="style" onload="this.remove();" href="/~camecc/assets/css/loader.css?t=1" type="text/css">
-        <link rel="stylesheet" href="/~camecc/assets/css/loader.css?t=1" type="text/css">
+        <link rel="preload" as="style" onload="this.remove();" href="/~camecc/assets/css/loader.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
+        <link rel="stylesheet" href="/~camecc/assets/css/loader.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
         
-        <link rel="preload" as="style" onload="this.remove();" href="/~camecc/assets/css/header.css?t=1" type="text/css">
-        <link rel="stylesheet" href="/~camecc/assets/css/header.css?t=1" type="text/css">
+        <link rel="preload" as="style" onload="this.remove();" href="/~camecc/assets/css/header.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
+        <link rel="stylesheet" href="/~camecc/assets/css/header.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
 
-        <link rel="preload" as="style" onload="this.remove();" href="/~camecc/assets/css/main.css?t=1" type="text/css">
-        <link rel="stylesheet" href="/~camecc/assets/css/main.css?t=1" type="text/css">
+        <link rel="preload" as="style" onload="this.remove();" href="/~camecc/assets/css/main.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
+        <link rel="stylesheet" href="/~camecc/assets/css/main.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
 
-        <link rel="preload" as="style" onload="this.remove();" href="/~camecc/assets/css/home.css?t=1" type="text/css">
-        <link rel="stylesheet" href="/~camecc/assets/css/home.css?t=1" type="text/css">
+        <link rel="preload" as="style" onload="this.remove();" href="/~camecc/assets/css/home.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
+        <link rel="stylesheet" href="/~camecc/assets/css/home.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
 </head>
 <body id="homepage">
     <div id="loader">
