@@ -34,11 +34,11 @@
             <li><a href="/~camecc/resenha/">resenha</a>
                 <ul>
                     <li><a href="/~camecc/resenha/sinuca/">sinuca</a></li>
-                    <li><a href="/~camecc/resenha/minecraft.html">minecraft</a></li>
+                    <li><a href="/~camecc/resenha/minecraft.php">minecraft</a></li>
                     <li><a href="/~camecc/resenha/xadrez/">equipe de xadrez</a></li>
                 </ul>
             </li>
-            <li><a href="/~camecc/contato.html">contato</a></li>
+            <li><a href="/~camecc/contato.php">contato</a></li>
         </ul>
     </nav>
 </header>

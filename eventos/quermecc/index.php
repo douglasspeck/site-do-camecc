@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <title>CAMECC - Cultura</title>
+    <title>CAMECC - Quermecc</title>
     
     <!-- META TAGS -->
     <meta charset="UTF-8">
@@ -11,9 +11,9 @@
 
     <!-- SEO -->
     <meta name="author" content="Speck">
-    <meta name="description" content="Cultura do CAMECC">
-    <meta name="keywords" content="centro acadêmico, unicamp, imecc, cultura, camecc">
-    <link rel="canonical" href="https://ime.unicamp.br/~camecc/sobre/cultura/">
+    <meta name="description" content="Festa Junina do CAMECC">
+    <meta name="keywords" content="centro acadêmico, unicamp, imecc, festa junina, quermecc, camecc">
+    <link rel="canonical" href="https://ime.unicamp.br/~camecc/eventos/quermecc/">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Sono:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">

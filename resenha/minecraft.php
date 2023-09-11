@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <title>CAMECC - Cultura</title>
+    <title>CAMECC - Minecraft</title>
     
     <!-- META TAGS -->
     <meta charset="UTF-8">
@@ -11,9 +11,9 @@
 
     <!-- SEO -->
     <meta name="author" content="Speck">
-    <meta name="description" content="Cultura do CAMECC">
-    <meta name="keywords" content="centro acadêmico, unicamp, imecc, cultura, camecc">
-    <link rel="canonical" href="https://ime.unicamp.br/~camecc/sobre/cultura/">
+    <meta name="description" content="Minecraft no CAMECC">
+    <meta name="keywords" content="centro acadêmico, unicamp, imecc, minecraft, camecc">
+    <link rel="canonical" href="https://ime.unicamp.br/~camecc/resenha/minecraft.php">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Sono:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
             <path id="logo_6" d="m 187.04702,23.385381 c -8.94216,0 -16.19121,7.403629 -16.19121,16.536459 0,9.13283 7.24905,16.53646 16.19121,16.53646 H 200 v -0.20981 l -3.68907,-6.40478 h -7.40596 c 0,0 -1.51851,-0.002 -1.85795,0 -5.3653,0 -9.71472,-4.44217 -9.71472,-9.92187 0,-5.4797 4.34942,-9.92188 9.71472,-9.92188 4.07408,5.4e-4 7.71505,2.597279 9.1187,6.50348 l 1.4142,-2.59829 2.24856,-4.13205 c -3.06699,-4.029679 -7.78408,-6.387119 -12.78146,-6.387719 z" />
         </svg>
     </div>
-    <?php include('../../assets/php/header.php'); ?>
+    <?php include('../assets/php/header.php'); ?>
     <section id="under-construction">
         <h1>Página em construção</h1>
         <p>Ainda não há nada para ver aqui.</p>

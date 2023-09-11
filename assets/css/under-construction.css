@@ -1,0 +1,15 @@
+#under-construction {
+    margin-top: 15vh;
+    width: 80vw;
+    padding: 0 10vw 7.5vh;
+    height: 77.5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#under-construction > h1 {
+    font-weight: bold;
+    font-size: 2em;
+    padding-bottom: .5em;
+}
