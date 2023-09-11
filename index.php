@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="assets/css/home.css?t=1" type="text/css">
 </head>
 <body id="homepage">
-    <div id="loader" style="display:none;">
+    <div id="loader">
         <svg id="camecc" width="400" height="120" viewBox="0 0 200 60" version="1.1">
             <path id="logo_1" d="M 25.90595,3.5416303 C 11.598519,3.5416303 1.9582462e-6,15.387471 0,29.99997 -2.9373664e-6,44.612479 11.598516,56.4583 25.90595,56.4583 H 38.858925 V 49.843719 H 25.90595 c -10.730574,0 -19.4294619,-8.88437 -19.4294619,-19.84375 2e-6,-10.959378 8.6988899,-19.843748 19.4294619,-19.843748 7.696581,-9e-5 14.667736,4.6399 17.775428,11.83132 l 3.695646,-6.7908 C 42.560618,7.9095403 34.514479,3.5418703 25.90595,3.5416303 Z" />
             <path id="logo_2" d="M 58.369344,6.9931003 35.047918,49.84372 l 3.809995,6.61458 9.79e-4,-0.002 19.51042,-35.848449 V 47.1039 l -4.505714,-4.60178 -3.272143,6.01255 7.777857,7.9437 h 6.476487 V 6.9931703 Z" />
@@ -46,8 +46,12 @@
     <?php include('assets/php/header.php'); ?>
     <main>
         <section id="banner">
-            <h1>O Centro Acadêmico<br><strong>que <span>nunca</span> fecha<strong></h1>
+            <h1>O Centro Acadêmico<br><strong>que <span>nunca</span> fecha</strong></h1>
             <p>O CAMECC é o <strong>Centro Acadêmico dos Estudantes do IMECC</strong>, uma entidade criada por alunos e <em>para alunos</em> do IMECC. Nossa missão é representar e articular o corpo discente do instituto.</p>
+            <figure>
+                <img src="assets/img/camecc_cheio.jpg" alt="Fotografia da Sede do Camecc em um dia lotado. Há quatro pessoas ao redor de uma mesa de sinuca, ao fundo, além de outras dez pessoas conversando em diferentes grupos.">
+                <figcaption>Sede do Camecc em um dia lotado</figcaption>
+            </figure>
             <h2>São finalidades do CAMECC (segundo nosso <a href="/~camecc/assets/docs/estatuto.pdf">Estatuto</a>):</h2>
             <ol>
                 <li><p><em>Defender os interesses e direitos dos estudantes</em> dos cursos de Graduação do IMECC, sem qualquer distinção de raça, cor, nacionalidade, sexo, ou convicção política, religiosa ou social;</p></li>

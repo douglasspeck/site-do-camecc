@@ -64,7 +64,7 @@ a:hover {
 
 main {
     padding: 11vh 5% 0;
-    width: 60%;
+    width: 70%;
     margin: auto;
 }
 
@@ -80,6 +80,41 @@ ol,ul,li {
 
 hr {
     margin: 5vh 0;
+}
+
+figure {
+    margin: 5vh 0;
+    display: block;
+    min-height: auto;
+    position: relative;
+}
+
+figure > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--default-color);
+}
+
+figcaption {
+    position: absolute;
+    bottom: 1ch;
+    left: 1ch;
+    width: fit-content;
+    max-width: 50%;
+    height: fit-content;
+    padding: .75em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cherry-blossom-pink);
+    box-shadow: 0 0 10px var(--chocolate-cosmos);
+    text-align: center;
+    font-size: 0.75em;
+    font-weight: bold;
+    color: var(--default-color);
+    border-radius: 5px;
 }
 
 section.gallery {
