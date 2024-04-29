@@ -1,20 +1,57 @@
 #homepage #banner {
     display: flex;
     flex-direction: column;
-    padding-top: 10vh;
+}
+
+#homepage #banner {
+    position: relative;
+    min-height: 100vh;
+    height: max-content;
+    width: 100%;
+    margin: 0;
+    padding: 20vh 10% 5vh;
+}
+
+#homepage #banner > * {
+    margin: 0;
+    width: 80%;
+}
+
+#homepage #banner * {
+    color: #fff;
+    text-shadow: #000 0px 0px 3px;
+}
+
+#homepage #banner figure.cover {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    margin: 0;
+}
+
+#homepage #banner figure.cover > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    object-fit: cover;
+    filter: brightness(0.5) blur(3px);
+    transform: scale(1.1);
 }
 
 #homepage h1 {
-    font-size: 60px;
     font-weight: 300;
     padding-bottom: 0.5em;
 }
 
-#homepage h1 > strong {
+#homepage #banner h1 strong {
     font-size: 1.5em;
 }
 
-#homepage h1 span {
+#homepage #banner h1 span {
     color: var(--red);
     font-weight: inherit;
 }
@@ -32,7 +69,6 @@
 }
 
 #homepage #banner ol {
-    margin-left: 5%;
     font-size: 0.75em;
 }
 
@@ -44,6 +80,50 @@
 #homepage #banner ol > li::marker {
     display: block;
     font-weight: bolder;
-    color: var(--chocolate-cosmos);
+    color: var(--red);
     content: counter(list, upper-roman) ')  ';
+}
+
+#log {
+    padding: 0 0 10vh;
+}
+
+#log > h2 {
+    padding-bottom: .5em;
+}
+
+#log > ul {
+    font-size: 0.75em;
+    margin-left: 2em;
+}
+
+#log > ul > li {
+    padding-bottom: .5em;
+}
+
+@media screen and (min-width: 768px) {
+    
+    #homepage h1 {
+        font-size: 48px;
+    }
+
+    #homepage #banner {
+        position: relative;
+        min-height: 100vh;
+        height: max-content;
+        width: 100%;
+        margin: 0;
+        padding: 20vh 15% 5vh;
+    }
+    
+    #homepage #banner > * {
+        margin: 0;
+        width: 70%;
+    }
+
+    #homepage main > section {
+        width: 90%;
+        margin: 0 auto;
+    }
+
 }

@@ -15,6 +15,13 @@
     transition: all 0.3s linear;
 }
 
+.hidden {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: -100%;
+}
+
 html,body {
     width: 100vw;
     min-height: 100vh;
@@ -23,6 +30,8 @@ html,body {
     overflow-x: hidden;
     background-color: var(--page-bg);
     font-size: 24px;
+    position: absolute;
+    z-index: -100;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -42,6 +51,7 @@ strong {
 em {
     font-style: normal;
     background-color: var(--cherry-blossom-pink);
+    color: var(--default-color);
     padding: 3px .5ch;
     margin: -3px 0;
 }
@@ -63,13 +73,14 @@ a:hover {
 }
 
 main {
-    padding: 11vh 5% 0;
-    width: 70%;
-    margin: auto;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
-section {
-    width: 100%;
+main > section {
+    width: 90%;
+    margin: auto;
     /* min-height: 30vh; */
 }
 
@@ -79,7 +90,8 @@ ol,ul,li {
 }
 
 hr {
-    margin: 5vh 0;
+    width: 70%;
+    margin: 5vh auto;
 }
 
 figure {
@@ -159,4 +171,12 @@ section.date-list > article > .date {
     font-weight: bolder;
     font-size: .75em;
     color: var(--chocolate-cosmos);
+}
+
+@media screen and (min-width: 768px) {
+
+    main > section {
+        width: 70%;
+    }
+
 }
