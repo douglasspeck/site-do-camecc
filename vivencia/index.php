@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <title>CAMECC - Torneio de Sinuca</title>
+    <title>CAMECC - Vivência</title>
     
     <!-- META TAGS -->
     <meta charset="UTF-8">
@@ -11,9 +11,9 @@
 
     <!-- SEO -->
     <meta name="author" content="Speck">
-    <meta name="description" content="Torneio de Sinuca do CAMECC">
-    <meta name="keywords" content="centro acadêmico, unicamp, imecc, sinuca, torneio, camecc">
-    <link rel="canonical" href="https://ime.unicamp.br/~camecc/eventos/torneio-de-sinuca/">
+    <meta name="description" content="Resenha do CAMECC">
+    <meta name="keywords" content="centro acadêmico, unicamp, imecc, resenha, camecc">
+    <link rel="canonical" href="https://ime.unicamp.br/~camecc/resenha/">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Sono:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="/~camecc/assets/css/under-construction.css?t=1"type="text/css">
 </head>
 <body>
-    <?php include('../../assets/php/header.php'); ?>
+    <?php include('../assets/php/header.php'); ?>
     <section id="under-construction">
         <h1>Página em construção</h1>
         <p>Ainda não há nada para ver aqui.</p>

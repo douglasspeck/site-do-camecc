@@ -16,7 +16,9 @@
         <link rel="canonical" href="https://ime.unicamp.br/~camecc">
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Sono:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
 
         <!-- Stylesheets -->
 
@@ -46,12 +48,21 @@
     <?php include('assets/php/header.php'); ?>
     <main>
         <section id="banner">
-            <h1>O Centro Acadêmico<br><strong>que <span>demonstra</span> o que faz</strong></h1>
+            <h1><strong>Boas-vindas, cameccer!</strong></h1>
             <p>O CAMECC é o <strong>Centro Acadêmico dos Estudantes do IMECC</strong>, uma entidade criada por alunos e <em>para alunos</em> do IMECC. Nossa missão é representar e articular o corpo discente do instituto.</p>
             <figure class="cover">
                 <img src="/~camecc/assets/img/sinuca_perspectiva.jpg" alt="Fotografia da Sede do Camecc em um dia qualquer de 2024. A foto é tirada em perspectiva a partir da mesa de sinuca, que é vermelha. À direita, há um homem em pé. À esquerda há um braço com um taco de sinuca pronto para dar uma tacada. Ao fundo, várias pessoas conversam.">
             </figure>
-            <h2>São finalidades do CAMECC (segundo nosso <a href="/~camecc/assets/docs/estatuto.pdf">Estatuto</a>):</h2>
+        </section>
+        <section>
+            <svg height="0">
+                <defs>
+                    <clipPath id="wave" clipPathUnits="objectBoundingBox">
+                        <path d="M0,0.5L0.0556,0.4334C0.1111,0.3656,0.2222,0.2344,0.3333,0.2834C0.4444,0.3344,0.5556,0.5656,0.6667,0.6C0.7778,0.6344,0.8889,0.4656,0.9444,0.3834L1,0.3L1,1L0.9444,1C0.8889,1,0.7778,1,0.6667,1C0.5556,1,0.4444,1,0.3333,1C0.2222,1,0.1111,1,0.0556,1L0,1Z" />
+                    </clipPath>
+                </defs>
+            </svg>
+            <h2>São finalidades do CAMECC (segundo nosso <a href="/~camecc/docs/estatuto.pdf">Estatuto</a>):</h2>
             <ol>
                 <li><p><em>Defender os interesses e direitos dos estudantes</em> dos cursos de Graduação do IMECC, sem qualquer distinção de raça, cor, nacionalidade, sexo, ou convicção política, religiosa ou social;</p></li>
                 <li><p><strong>Manifestar-se publicamente</strong>, sempre que necessário, em nome dos estudantes representados, se solidarizando com as <em>reivindicações dos estudantes e das entidades</em> estudantis;</p></li>
@@ -59,15 +70,10 @@
                 <li><p>Participar e desenvolver <strong>atividades socialmente responsáveis</strong>.</p></li>
             </ol>
         </section>
-        <hr>
         <section id="events">
             <h2>Próximos Eventos</h2>
             <section class="date-list">
                 <?php
-
-                    ini_set('display_errors', 1);
-                    ini_set('display_startup_errors', 1);
-                    error_reporting(E_ALL);
 
                     include('assets/php/iCal.php');
 
@@ -77,17 +83,22 @@
 
                     if ($events) {
 
-                        foreach ($events as $date => $events)
-                        {
-                            foreach ($events as $event)
+                        $count = 0;
+
+                        while ($count < 6) {
+                            foreach ($events as $date => $events)
                             {
-                                echo '<article>';
-                                echo '<p class="date">' . date_format(date_create($date),"d/m/Y");
-                                if ($event->duration() > 86400) { echo ' – ' . date_format(date_sub(date_create($event->dateEnd),date_interval_create_from_date_string("1 second")),"d/m/Y");};
-                                echo '</p>';
-                                echo '<p>' . $event->title() . "</p>";
-                                echo "</article>";
-                            }  
+                                foreach ($events as $event)
+                                {
+                                    echo '<article>';
+                                    echo '<p class="date">' . date_format(date_create($date),"d/m/Y");
+                                    if ($event->duration() > 86400) { echo ' – ' . date_format(date_sub(date_create($event->dateEnd),date_interval_create_from_date_string("1 second")),"d/m/Y");};
+                                    echo '</p>';
+                                    echo '<p>' . $event->title() . "</p>";
+                                    echo "</article>";
+                                }  
+                                $count += 1;
+                            }
                         }
 
                     } else {

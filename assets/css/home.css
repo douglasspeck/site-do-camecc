@@ -1,15 +1,13 @@
 #homepage #banner {
     display: flex;
     flex-direction: column;
-}
-
-#homepage #banner {
     position: relative;
-    min-height: 100vh;
+    min-height: 75vh;
     height: max-content;
-    width: 100%;
-    margin: 0;
-    padding: 20vh 10% 5vh;
+    width: 80%;
+    padding: 20vh 10% 15vh;
+    justify-content: flex-end;
+    margin: 0 auto;
 }
 
 #homepage #banner > * {
@@ -18,8 +16,22 @@
 }
 
 #homepage #banner * {
-    color: #fff;
-    text-shadow: #000 0px 0px 3px;
+    color: var(--base-color);
+}
+
+#homepage > main > section:nth-of-type(2) {
+    position: relative;
+}
+
+#homepage > main > section:nth-of-type(2)::before {
+    content: '';
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--base-color);
+    position: absolute;
+    top: -9vh;
+    left: -5vw;
+    clip-path: url(#wave);
 }
 
 #homepage #banner figure.cover {
@@ -39,21 +51,19 @@
     box-shadow: none;
     object-fit: cover;
     filter: brightness(0.5) blur(3px);
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 #homepage h1 {
     font-weight: 300;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.25em;
+    font-family: var(--aux-font);
+    font-size: 2em;
+    line-height: 0.9;
 }
 
-#homepage #banner h1 strong {
-    font-size: 1.5em;
-}
-
-#homepage #banner h1 span {
-    color: var(--red);
-    font-weight: inherit;
+#homepage #banner em {
+    background-color: var(--red);
 }
 
 #homepage h2 {
@@ -109,11 +119,11 @@
 
     #homepage #banner {
         position: relative;
-        min-height: 100vh;
+        min-height: 45vh;
         height: max-content;
-        width: 100%;
-        margin: 0;
-        padding: 20vh 15% 5vh;
+        width: 70%;
+        padding: 20vh 15% 15vh;
+        overflow: hidden;
     }
     
     #homepage #banner > * {
@@ -123,7 +133,6 @@
 
     #homepage main > section {
         width: 90%;
-        margin: 0 auto;
     }
 
 }

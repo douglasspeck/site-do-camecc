@@ -5,10 +5,12 @@ body > header {
     margin: 0;
     display: flex;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 16px;
+    font-family: var(--aux-font);
+    font-weight: 300;
     position: fixed;
     z-index: 10;
-    box-shadow: var(--chocolate-cosmos) 0px 0px 0px;
+    box-shadow: var(--aux-color) 0px 0px 0px;
 }
 
 #menu-toggle {
@@ -17,17 +19,16 @@ body > header {
 
 html:not([data-scroll='0']) > body > header {
     background-color: var(--page-bg);
-    box-shadow: var(--chocolate-cosmos) 0px 0px 10px;
+    box-shadow: var(--main-color) 0px 0px 10px;
 }
 
 body > header a {
     background: none;
-    color: #fff;
-    transition: all 0.5s linear;
+    color: var(--main-color);
 }
 
 html:not([data-scroll='0']) > body > header a {
-    color: var(--claret);
+    color: var(--main-color);
 }
 
 body > header > a {
@@ -38,14 +39,13 @@ body > header > a {
 
 #header-logo {
     display: block;
-    fill: #000;
+    fill: var(--main-color);
     height: 5vh;
     width: auto;
-    transition: all 0.5s linear;
 }
 
 html[data-scroll='0'] #header-logo > * {
-    fill: #fff;
+    fill: var(--base-color);
 }
 
 #header-logo > :nth-child(5) {
@@ -74,16 +74,15 @@ body > header > nav > ul > li {
 }
 
 body > header > nav > ul > li > a {
-    font-weight: bold;
     display: flex;
     align-items: center;
     width: 100%;
-    height: 5vh;
-    padding: 5px 0px 5px 5px;
+    padding: 10px 0px 10px 5px;
+    color: var(--base-color);
 }
 
-body > header > nav > ul > li > a:hover {
-    color: var(--default-color);
+body > header > nav > ul > li:hover > a {
+    color: var(--main-color);
 }
 
 body > header > nav > ul > li > ul {
@@ -94,14 +93,13 @@ body > header > nav > ul > li > ul {
 }
 
 body > header > nav > ul > li > ul > li > a {
-    color: var(--claret);
     font-weight: 400;
     display: flex;
     width: 90%;
 }
 
 body > header > nav > ul > li > ul > li > a:hover {
-    color: var(--default-color);
+    color: var(--red);
 }
 
 body > header > nav > ul > li > a::before,
@@ -110,7 +108,7 @@ body > header > nav > ul > li > ul > li > a::before {
     display: block;
     padding: 0 1ch;
     font-weight: 300;
-    transition: all 0.5s linear;
+    color: inherit;
 }
 
 body > header > nav > ul > li:hover > a:not(:last-child)::before {
@@ -140,8 +138,8 @@ body > header > nav > ul > li > ul > li > a:hover::before {
 }
 
 body > header > nav > ul > li:hover {
-    background-color: var(--cherry-blossom-pink);
-    box-shadow: var(--chocolate-cosmos) 0px 2px 5px;
+    background-color: var(--base-color);
+    box-shadow: var(--aux-color-2) 0px 2px 5px;
 }
 
 body > header > nav > ul > li:hover > a {
@@ -176,7 +174,7 @@ body > header > nav > ul > li:hover > ul {
         padding: 10vh 5vw 5vh;
         display: flex;
         flex-direction: column;
-        background-color: var(--cherry-blossom-pink);
+        background-color: var(--aux-color);
     }
 
     body > header > nav > ul,
@@ -191,26 +189,25 @@ body > header > nav > ul > li:hover > ul {
 
     body > header > nav > ul > li {
         width: 100%;
-        box-shadow: var(--chocolate-cosmos) 0px 2px 5px;
+        box-shadow: var(--main-color) 0px 2px 5px;
     }
 
     body > header > nav a {
-        color: var(--default-color);
+        color: var(--main-color);
     }
 
     #sandwich {
-        --sandwich-color: #fff;
+        --sandwich-color: var(--base-color);
         display: block;
         width: 30px;
         height: 5px;
         background-color: var(--sandwich-color);
         position: relative;
-        transition: all 0.5s linear;
         z-index: 100;
     }
 
     html:not([data-scroll='0']) #sandwich {
-        --sandwich-color: var(--chocolate-cosmos);
+        --sandwich-color: var(--highlight-color);
     }
 
     #sandwich::before, #sandwich::after {
@@ -222,7 +219,6 @@ body > header > nav > ul > li:hover > ul {
         top: 0;
         left: 0;
         transform: translate(0, -10px);
-        transition: all 0.5s linear;
     }
 
     #sandwich::after {

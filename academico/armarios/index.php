@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <title>CAMECC - Torneio de Truco</title>
+    <title>CAMECC - Armários</title>
     
     <!-- META TAGS -->
     <meta charset="UTF-8">
@@ -11,9 +11,9 @@
 
     <!-- SEO -->
     <meta name="author" content="Speck">
-    <meta name="description" content="Torneio de Truco do CAMECC">
-    <meta name="keywords" content="centro acadêmico, unicamp, imecc, truco, torneio, camecc">
-    <link rel="canonical" href="https://ime.unicamp.br/~camecc/eventos/torneio-de-truco/">
+    <meta name="description" content="Informações sobre os armários vinculados ao CAMECC">
+    <meta name="keywords" content="centro acadêmico, unicamp, imecc, cursos, camecc">
+    <link rel="canonical" href="https://ime.unicamp.br/~camecc/academico/cursos/">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Sono:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">

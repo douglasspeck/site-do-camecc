@@ -11,33 +11,37 @@
     <label for="menu-toggle" id="sandwich"></label>
     <nav>
         <ul>
-            <li><a href="/~camecc/sobre/">sobre nós</a>
+            <li><a href="/~camecc/sobre/">sobre</a>
                 <ul>
                     <li><a href="/~camecc/sobre/historia/">nossa história</a></li>
                     <li><a href="/~camecc/sobre/gente/">nossa gente</a></li>
                     <li><a href="/~camecc/sobre/cultura/">nosso jeito</a></li>
                 </ul>
             </li>
-            <li><a href="/~camecc/eventos/">eventos</a>
-                <ul>
-                    <li><a href="/~camecc/eventos/assembleias/">assembleias</a></li>
-                    <li><a href="/~camecc/eventos/quermecc/">quermecc</a></li>
-                    <li><a href="/~camecc/eventos/torneio-de-sinuca/">torneio de sinuca</a></li>
-                    <li><a href="/~camecc/eventos/torneio-de-truco/">torneio de truco</a></li>
-                </ul>
-            </li>
             <li><a href="/~camecc/academico/">acadêmico</a>
                 <ul>
+                    <li><a href="/~camecc/academico/armarios/">armários</a></li>
                     <li><a href="/~camecc/academico/cursos/">cursos</a></li>
                     <li><a href="/~camecc/academico/materiais/">materiais</a></li>
                     <li><a href="/~camecc/academico/guias/">guias</a></li>
                 </ul>
             </li>
-            <li><a href="/~camecc/resenha/">resenha</a>
+            <li><a href="/~camecc/social/">social</a>
                 <ul>
-                    <li><a href="/~camecc/resenha/sinuca/">sinuca</a></li>
-                    <li><a href="/~camecc/resenha/minecraft.php">minecraft</a></li>
-                    <li><a href="/~camecc/resenha/xadrez/">equipe de xadrez</a></li>
+                    <li><a href="/~camecc/social/assembleias/">assembleias</a></li>
+                    <li><a href="/~camecc/social/campanhas/">campanhas</a></li>
+                    <li><a href="/~camecc/social/entidades/">coletivos e entidades</a></li>
+                </ul>
+            </li>
+            <li><a href="/~camecc/vivencia/">resenha</a>
+                <ul>
+                    <li><a href="/~camecc/vivencia/sede/">a sede</a></li>
+                    <li><a href="/~camecc/vivencia/sinuca/">sinuca</a></li>
+                    <li><a href="/~camecc/vivencia/quermecc/">quermecc</a></li>
+                    <li><a href="/~camecc/vivencia/truco/">truco</a></li>
+                    <li><a href="/~camecc/vivencia/fifa/">fifa</a></li>
+                    <li><a href="/~camecc/vivencia/minecraft.php">minecraft</a></li>
+                    <li><a href="/~camecc/vivencia/xadrez/">equipe de xadrez</a></li>
                 </ul>
             </li>
             <li><a href="/~camecc/contato.php">contato</a></li>
