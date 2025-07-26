@@ -1,237 +1,177 @@
-body > header {
-    width: 90%;
-    height: calc(5vh + 10px);
-    padding: 3vh 5%;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    font-size: 16px;
-    font-family: var(--aux-font);
-    font-weight: 300;
+header {
     position: fixed;
-    z-index: 10;
-    box-shadow: var(--aux-color) 0px 0px 0px;
+    top: 0;
+    left: 0;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4vh 5%;
+    box-shadow: 0 0 3px var(--aux-color-2); 
+    background-color: var(--base-color);
+    z-index: 5;
+}
+
+#header-logo {
+    fill: var(--main-color);
+}
+
+#Cc {
+    fill: var(--highlight-color);
+}
+
+html[data-scroll="0"] header {
+    box-shadow: none;
+    background-color: transparent;
+    height: 6vh;
 }
 
 #menu-toggle {
     display: none;
 }
 
-html:not([data-scroll='0']) > body > header {
-    background-color: var(--page-bg);
-    box-shadow: var(--main-color) 0px 0px 10px;
-}
-
-body > header a {
-    background: none;
-    color: var(--main-color);
-}
-
-html:not([data-scroll='0']) > body > header a {
-    color: var(--main-color);
-}
-
-body > header > a {
-    padding: 5px 0;
-    height: fit-content;
-    width: fit-content;
-}
-
-#header-logo {
+#sandwich,
+#sandwich::before,
+#sandwich::after {
+    content: '';
     display: block;
-    fill: var(--main-color);
+    background-color: var(--highlight-color);
+    width: 2em;
+    height: 0.4em;
+    position: relative;
+    top: 0;
+    z-index: 10;
+    transform: rotate(0deg);
+}
+
+#sandwich::before,
+#sandwich::after {
+    position: absolute;
+    transform: translateY(-150%) rotate(0deg);
+}
+
+#sandwich::after {
+    transform: translateY(150%) rotate(0deg);
+}
+
+#header-logo, #header-logo > svg {
+    background: none;
     height: 5vh;
     width: auto;
 }
 
-html[data-scroll='0'] #header-logo > * {
-    fill: var(--base-color);
+#menu-toggle:checked ~ #sandwich {
+    transform: rotate(45deg);
 }
 
-#header-logo > :nth-child(5) {
-    fill: var(--red);
+#menu-toggle:checked ~ #sandwich::before,
+#menu-toggle:checked ~ #sandwich::after {
+    transform: translateY(0) rotate(-90deg);
 }
 
-body > header > nav {
-    width: 60%;
-    height: fit-content;
+#menu-toggle:checked ~ nav {
+    transform: translateX(-100%);
 }
 
-body > header > nav ul {
-    width: 100%;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 10px;
+#menu-toggle:not(:checked) ~ nav {
+    transform: translateX(0);
+}
+
+header > nav {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    height: 100vh;
+    width: 100vw;
+    
+}
+
+header > nav a {
+    background: none !important;
+    font-family: var(--aux-font);
+}
+
+header > nav,
+header > nav ul {
     display: flex;
-}
-
-body > header > nav > ul > li {
-    display: flex;
+    justify-content: center;
     flex-direction: column;
-    width: 20%;
-    height: fit-content;
+    width: max-content;
+    margin: 0;
 }
 
-body > header > nav > ul > li > a {
+header > nav > ul {
+    gap: 1em;
+    justify-content: space-between;
+}
+
+header > nav li {
     display: flex;
     align-items: center;
-    width: 100%;
-    padding: 10px 0px 10px 5px;
-    color: var(--base-color);
+    justify-content: flex-start;
+    position: relative;
+    margin: 0;
+    padding: 0.25em;
 }
 
-body > header > nav > ul > li:hover > a {
-    color: var(--main-color);
-}
-
-body > header > nav > ul > li > ul {
+header > nav li > ul {
     display: none;
-    flex-direction: column;
-    width: 100%;
-    padding: 5px 5px 10px;
-}
-
-body > header > nav > ul > li > ul > li > a {
-    font-weight: 400;
-    display: flex;
-    width: 90%;
-}
-
-body > header > nav > ul > li > ul > li > a:hover {
-    color: var(--red);
-}
-
-body > header > nav > ul > li > a::before,
-body > header > nav > ul > li > ul > li > a::before {
-    content: '>';
-    display: block;
-    padding: 0 1ch;
-    font-weight: 300;
-    color: inherit;
-}
-
-body > header > nav > ul > li:hover > a:not(:last-child)::before {
-    transform: rotate(90deg);
-}
-
-body > header > nav > ul > li > ul > li > a:hover::before {
-    animation: bounce-x 1s infinite ease-in-out;
-}
-
-@keyframes bounce-x {
-    0% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(10%);
-    }
-    50% {
-        transform: translateX(0);
-    }
-    75% {
-        transform: translateX(-10%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-body > header > nav > ul > li:hover {
+    position: absolute;
+    left: -0.5em;
+    top: 100%;
+    padding: 0.5em;
     background-color: var(--base-color);
-    box-shadow: var(--aux-color-2) 0px 2px 5px;
+    box-shadow: 1px 1px 2px var(--aux-color-2);
+    border-radius: 0.25em;
 }
 
-body > header > nav > ul > li:hover > a {
-    color: #000;
-}
-
-body > header > nav > ul > li:hover > ul {
+header > nav li:hover > ul {
     display: flex;
 }
 
-@media screen and (orientation: portrait) {
+@media screen and (orientation:landscape) {
 
-    body > header {
-        width: 90%;
-        margin: 0;
-        padding: 3vh 5%;
-        align-items: center;
+    header {
+        height: 4vh;
+    }
+
+    #header-logo, #header-logo > svg {
+        height: 6vh;
+    }
+
+    header > nav {
+        height: auto;
+        width: auto;
+        position: static;
     }
     
-    body > header > #menu-toggle:not(:checked) ~ nav {
-        transform: translateX(100vw);
-        transition: all 0.5s ease-in-out;
-    }
-
-    body > header > nav {
-        transform: translateX(0);
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 90vw;
-        height: 90vh;
-        padding: 10vh 5vw 5vh;
-        display: flex;
-        flex-direction: column;
-        background-color: var(--aux-color);
-    }
-
-    body > header > nav > ul,
-    body > header > nav > ul > li > ul {
-        display: flex;
-        flex-direction: column;
-    }
-
-    body > header > nav > ul > li > a::before {
-        transform: rotate(90deg);
-    }
-
-    body > header > nav > ul > li {
-        width: 100%;
-        box-shadow: var(--main-color) 0px 2px 5px;
-    }
-
-    body > header > nav a {
-        color: var(--main-color);
-    }
-
     #sandwich {
-        --sandwich-color: var(--base-color);
+        display: none;
+    }
+
+    header > nav a {
+        font-size: 0.75em;
+    }
+
+    header > nav > ul {
+        flex-direction: row;
+    }
+
+    header > nav > ul > li::before {
+        content: "";
+        width: 0.25em;
+        height: 0.25em;
         display: block;
-        width: 30px;
-        height: 5px;
-        background-color: var(--sandwich-color);
-        position: relative;
-        z-index: 100;
-    }
-
-    html:not([data-scroll='0']) #sandwich {
-        --sandwich-color: var(--highlight-color);
-    }
-
-    #sandwich::before, #sandwich::after {
-        content: '';
-        width: 30px;
-        height: 5px;
-        background-color: var(--sandwich-color);
         position: absolute;
-        top: 0;
         left: 0;
-        transform: translate(0, -10px);
+        top: 50%;
+        transform: translate(-125%, -40%) rotate(45deg);
+        border-top: 1px solid var(--highlight-color);
+        border-right: 1px solid var(--highlight-color);
     }
-
-    #sandwich::after {
-        transform: translate(0, 10px);
-    }
-
-    #menu-toggle:checked ~ #sandwich {
-        transform: rotate(45deg);
-    }
-
-    #menu-toggle:checked ~ #sandwich::before,
-    #menu-toggle:checked ~ #sandwich::after {
-        transform: translate(0,0) rotate(-90deg);
+    
+    header > nav > ul > li:not(:last-child):hover::before {
+        transform: translate(-125%, -40%) rotate(135deg);
     }
 
 }

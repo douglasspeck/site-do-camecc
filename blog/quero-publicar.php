@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <title>CAMECC - Acedêmico</title>
+    <title>CAMECC - Quero Publicar</title>
     
     <!-- META TAGS -->
     <meta charset="UTF-8">
@@ -11,9 +11,9 @@
 
     <!-- SEO -->
     <meta name="author" content="Speck">
-    <meta name="description" content="Apoio acadêmico do CAMECC">
-    <meta name="keywords" content="centro acadêmico, unicamp, imecc, academico, camecc">
-    <link rel="canonical" href="https://ime.unicamp.br/~camecc/academico/">
+    <meta name="description" content="Informações sobre publicação de conteúdo no SubStack do CAMECC">
+    <meta name="keywords" content="centro acadêmico, unicamp, imecc, publicações, conteúdo, camecc">
+    <link rel="canonical" href="https://ime.unicamp.br/~camecc/blog/quero-publicar.php">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="/~camecc/assets/css/under-construction.css?t=1"type="text/css">
 </head>
 <body>
-    <?php include('../assets/php/header.php'); ?>
+    <?php include('../../assets/php/header.php'); ?>
     <section id="under-construction">
         <h1>Página em construção</h1>
         <p>Ainda não há nada para ver aqui.</p>

@@ -1,138 +1,326 @@
-#homepage #banner {
+#hero {
     display: flex;
     flex-direction: column;
-    position: relative;
-    min-height: 75vh;
-    height: max-content;
-    width: 80%;
-    padding: 20vh 10% 15vh;
-    justify-content: flex-end;
-    margin: 0 auto;
-}
-
-#homepage #banner > * {
-    margin: 0;
-    width: 80%;
-}
-
-#homepage #banner * {
-    color: var(--base-color);
-}
-
-#homepage > main > section:nth-of-type(2) {
-    position: relative;
-}
-
-#homepage > main > section:nth-of-type(2)::before {
-    content: '';
-    width: 100vw;
-    height: 10vh;
-    background-color: var(--base-color);
-    position: absolute;
-    top: -9vh;
-    left: -5vw;
-    clip-path: url(#wave);
-}
-
-#homepage #banner figure.cover {
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-    margin: 0;
-}
-
-#homepage #banner figure.cover > img {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    box-shadow: none;
-    object-fit: cover;
-    filter: brightness(0.5) blur(3px);
-    transform: scale(1.05);
+    padding-top: 5vh;
 }
 
 #homepage h1 {
-    font-weight: 300;
-    padding-bottom: 0.25em;
-    font-family: var(--aux-font);
-    font-size: 2em;
-    line-height: 0.9;
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 500;
 }
 
-#homepage #banner em {
-    background-color: var(--red);
+#homepage h1 > div {
+    display: inline-flex;
+    flex-direction: column;
+    height: 1.25em;
+    gap: 0.25em;
+    overflow: hidden;
+}
+
+#homepage h1 > div > span {
+    display: block;
+    color: var(--highlight-color);
+    height: 1.25em;
+    line-height: 1;
+    padding: 0;
+    animation: cycleTitle 8s infinite forwards;
+}
+
+#recent-searches {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    color: var(--highlight-color);
+    font-weight: 400;
+    font-family: var(--aux-font);
+}
+
+#recent-searches > .search {
+    position: relative;
+    padding-left: 1.5em;
+    cursor: pointer;
+    width: fit-content;
+    background: linear-gradient(var(--highlight-color), var(--highlight-color));
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
+
+#recent-searches .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 0.75em;
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    border: 2px solid var(--highlight-color);
+    border-radius: 50% 50%;
+    transform: translate(-0.5em, -75%);;
+}
+
+#recent-searches .search-icon::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 2px;
+    height: 0.5em;
+    background-color: var(--highlight-color);
+    transform: translate(-0.2em, 0.4em) rotate(45deg);
+}
+
+#recent-searches > .search:hover {
+    padding-left: 0.25ch;
+    padding-right: 0.25ch;
+    margin-left: -0.25ch;
+    background-size: 100% 2px;
+}
+
+#recent-searches > .search:hover .search-icon {
+    left: 100%;
+    transform: translate(0.5em, -75%);
+}
+
+@keyframes cycleTitle {
+    0% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-1.25em);
+    }
+    50% {
+        transform: translateY(-1.25em);
+    }
+    60% {
+        transform: translateY(-2.5em);
+    }
+    80% {
+        transform: translateY(-2.5em);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#main-photo {
+    width: 100vw;
+    height: 40vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 0% 15%);
+    filter: grayscale(1);
+}
+
+#main-photo > img {
+    height: 100%;
+    width: auto;
 }
 
 #homepage h2 {
-    font-weight: 400;
+    font-size: 1.25em;
+    padding-bottom: 0.5em;
 }
 
-#homepage #banner h2 {
-    padding-top: 1em;
+#news-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1em;
+    column-gap: 0.5em;
 }
 
-#homepage #banner h2 > a {
-    font-weight: inherit;
+#news-grid > .news {
+    grid-column: 1/3;
+    width: 100%;
+    aspect-ratio: 16/9;
+    position: relative;
 }
 
-#homepage #banner ol {
-    font-size: 0.75em;
-}
-
-#homepage #banner ol > li {
-    margin-top: 1em;
-    counter-increment: list;
-}
-
-#homepage #banner ol > li::marker {
+#news-grid > .news::after {
+    content: '';
     display: block;
-    font-weight: bolder;
-    color: var(--red);
-    content: counter(list, upper-roman) ')  ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: inset 0 -4em 4em -2em #000;
 }
 
-#log {
-    padding: 0 0 10vh;
+#news-grid > .news > a {
+    background: none;
+    position: relative;
 }
 
-#log > h2 {
-    padding-bottom: .5em;
+#news-grid > .news .cover {
+    background-color: var(--aux-color);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-#log > ul {
-    font-size: 0.75em;
-    margin-left: 2em;
+#news-grid > .news > a > p {
+    width: 90%;
+    position: absolute;
+    bottom: 1em;
+    left: 0.5em;
+    color: var(--base-color);
+    overflow: hidden;
+    line-height: 1.25;
+    font-size: 1em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    z-index: 2;
 }
 
-#log > ul > li {
-    padding-bottom: .5em;
+#news-grid .button {
+    padding: 0.25em;
+    border-radius: 0.15em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--aux-font);
+    font-weight: bold;
+    font-size: 1.25em;
 }
 
-@media screen and (min-width: 768px) {
-    
+#news-grid .button:first-of-type {
+    background-color: var(--highlight-color);
+}
+
+#toolbox > ul {
+    display: flex;
+    gap: 1em;
+    pointer-events: none;
+}
+
+#toolbox > ul > li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--highlight-color);
+    padding: 0.25em 0.5em;
+    pointer-events: all;
+}
+
+#toolbox > ul:hover > li:not(:hover) {
+    opacity: 0.25;
+}
+
+#toolbox > ul > li > a {
+    display: flex;
+    align-items: center;
+    background: none;
+}
+
+@media screen and (orientation: landscape) {
+
+    #hero {
+        padding-top: 10vh;
+    }
+
     #homepage h1 {
-        font-size: 48px;
+        font-size: 3rem;
     }
 
-    #homepage #banner {
-        position: relative;
-        min-height: 45vh;
-        height: max-content;
-        width: 70%;
-        padding: 20vh 15% 15vh;
-        overflow: hidden;
-    }
-    
-    #homepage #banner > * {
-        margin: 0;
-        width: 70%;
+    #homepage h1 > div {
+        margin-left: 0.5ch;
     }
 
-    #homepage main > section {
-        width: 90%;
+    #homepage h1 > div > span:nth-child(3) {
+        display: none;
+    }
+
+    #hero > p {
+        width: 60%;
+    }
+
+    #main-photo {
+        height: 70vh;
+    }
+
+    #main-photo > img {
+        width: 100%;
+        height: auto;
+    }
+
+    #news-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    #news-grid > .news {
+        grid-row: auto;
+        grid-column: auto;
+        width: auto;
+        height: 100%;
+    }
+
+    #news-grid > .button {
+        grid-column: 2/3;
+    }
+
+    #news-grid > .button:first-of-type {
+        grid-column: 1/2;
+    }
+
+}
+
+@media screen and (orientation: landscape) and (min-width: 1000px) {
+
+    #news-grid {
+        --gap: 1vh;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(4,1fr);
+        gap: calc(0.9 * var(--gap));
+        column-gap: calc(1.6 * var(--gap));
+    }
+
+    #news-grid > .news {
+        grid-column: auto;
+        grid-row: 1/3;
+        width: auto;
+        height: 100%;
+        font-size: 1em;
+    }
+
+    #news-grid > .news:first-of-type {
+        grid-column: 1/3;
+        grid-row: 1/5;
+        font-size: 1.25em;
+    }
+
+    #news-grid > .news:last-of-type {
+        grid-row: 3/5;
+    }
+
+    #news-grid > .button {
+        grid-column: 4/5;
+        grid-row: 4/5;
+        font-size: 1.5em;
+    }
+
+    #news-grid > .button:first-of-type {
+        grid-column: 4/5;
+        grid-row: 3/4;
+    }
+
+}
+
+@media screen and (orientation: portrait) {
+
+    #homepage h1 > div > span:nth-child(4) {
+        display: none;
     }
 
 }
