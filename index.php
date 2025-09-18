@@ -5,8 +5,8 @@
 
         <?php include('assets/php/head.php'); ?>
 
-        <link rel="preload" as="style" onload="this.remove();" href="/~camecc/assets/css/home.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
-        <link rel="stylesheet" href="/~camecc/assets/css/home.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
+        <link rel="preload" as="style" onload="this.remove();" href="/home/entidades/camecc/assets/css/home.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
+        <link rel="stylesheet" href="/home/entidades/camecc/assets/css/home.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
 
         <!-- SEO -->
         <meta name="author" content="Speck">

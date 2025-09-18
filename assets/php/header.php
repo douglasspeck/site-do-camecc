@@ -1,5 +1,5 @@
 <header>
-    <a id="header-logo" href="/~camecc/"><svg width="400" height="120" viewBox="0 0 200 60" version="1.1">
+    <a id="header-logo" href="/home/entidades/camecc/"><svg width="400" height="120" viewBox="0 0 200 60" version="1.1">
         <path d="M 25.90595,3.5416303 C 11.598519,3.5416303 1.9582462e-6,15.387471 0,29.99997 -2.9373664e-6,44.612479 11.598516,56.4583 25.90595,56.4583 H 38.858925 V 49.843719 H 25.90595 c -10.730574,0 -19.4294619,-8.88437 -19.4294619,-19.84375 2e-6,-10.959378 8.6988899,-19.843748 19.4294619,-19.843748 7.696581,-9e-5 14.667736,4.6399 17.775428,11.83132 l 3.695646,-6.7908 C 42.560618,7.9095403 34.514479,3.5418703 25.90595,3.5416303 Z" />
         <path d="M 58.369344,6.9931003 35.047918,49.84372 l 3.809995,6.61458 9.79e-4,-0.002 19.51042,-35.848449 V 47.1039 l -4.505714,-4.60178 -3.272143,6.01255 7.777857,7.9437 h 6.476487 V 6.9931703 Z" />
         <path d="M 71.322314,6.9936203 V 56.44796 h 6.476494 V 20.609321 l 5.18321,9.523449 c 0.09732,0.0661 6.478002,0 6.478002,0 l 5.18322,-9.523449 V 56.44796 h 6.47648 V 6.9936203 h -6.47648 v 0.001 L 86.221279,22.470161 77.798808,6.9946203 v -0.001 h -5.09e-4 z" />
@@ -11,47 +11,47 @@
     <label for="menu-toggle" id="sandwich"></label>
     <nav>
         <ul>
-            <li><a href="/~camecc/sobre/">sobre</a>
+            <li><a href="/home/entidades/camecc/sobre/">sobre</a>
                 <ul>
-                    <li><a href="/~camecc/sobre/historia/">nossa história</a></li>
-                    <li><a href="/~camecc/sobre/gente/">nossa gente</a></li>
-                    <li><a href="/~camecc/sobre/cultura/">nosso jeito</a></li>
+                    <li><a href="/home/entidades/camecc/sobre/historia/">nossa história</a></li>
+                    <li><a href="/home/entidades/camecc/sobre/gente/">nossa gente</a></li>
+                    <li><a href="/home/entidades/camecc/sobre/cultura/">nosso jeito</a></li>
                 </ul>
             </li>
-            <li><a href="/~camecc/adm/">administrativo</a>
+            <li><a href="/home/entidades/camecc/adm/">administrativo</a>
                 <ul>
-                    <li><a href="/~camecc/adm/gestao">gestão</a></li>
-                    <li><a href="/~camecc/adm/reunioes/">reuniões</a></li>
-                    <li><a href="/~camecc/adm/juridico">jurídico</a></li>
-                    <li><a href="/~camecc/adm/financeiro">financeiro</a></li>
+                    <li><a href="/home/entidades/camecc/adm/gestao">gestão</a></li>
+                    <li><a href="/home/entidades/camecc/adm/reunioes/">reuniões</a></li>
+                    <li><a href="/home/entidades/camecc/adm/juridico">jurídico</a></li>
+                    <li><a href="/home/entidades/camecc/adm/financeiro">financeiro</a></li>
                 </ul>
             </li>
-            <li><a href="/~camecc/academico/">acadêmico</a>
+            <li><a href="/home/entidades/camecc/academico/">acadêmico</a>
                 <ul>
-                    <li><a href="/~camecc/academico/armarios/">armários</a></li>
-                    <li><a href="/~camecc/academico/cursos/">cursos</a></li>
-                    <li><a href="/~camecc/academico/materiais/">materiais</a></li>
-                    <li><a href="/~camecc/academico/guias/">guias</a></li>
+                    <li><a href="/home/entidades/camecc/academico/armarios/">armários</a></li>
+                    <li><a href="/home/entidades/camecc/academico/cursos/">cursos</a></li>
+                    <li><a href="/home/entidades/camecc/academico/materiais/">materiais</a></li>
+                    <li><a href="/home/entidades/camecc/academico/guias/">guias</a></li>
                 </ul>
             </li>
-            <li><a href="/~camecc/social/">social</a>
+            <li><a href="/home/entidades/camecc/social/">social</a>
                 <ul>
-                    <li><a href="/~camecc/social/campanhas/">campanhas</a></li>
-                    <li><a href="/~camecc/social/entidades/">coletivos e entidades</a></li>
+                    <li><a href="/home/entidades/camecc/social/campanhas/">campanhas</a></li>
+                    <li><a href="/home/entidades/camecc/social/entidades/">coletivos e entidades</a></li>
                 </ul>
             </li>
-            <li><a href="/~camecc/vivencia/">vivência</a>
+            <li><a href="/home/entidades/camecc/vivencia/">vivência</a>
                 <ul>
-                    <li><a href="/~camecc/vivencia/sede/">a sede</a></li>
-                    <li><a href="/~camecc/vivencia/sinuca/">sinuca</a></li>
-                    <li><a href="/~camecc/vivencia/quermecc/">quermecc</a></li>
-                    <li><a href="/~camecc/vivencia/truco/">truco</a></li>
-                    <li><a href="/~camecc/vivencia/fifa/">fifa</a></li>
-                    <li><a href="/~camecc/vivencia/minecraft/">minecraft</a></li>
-                    <li><a href="/~camecc/vivencia/xadrez/">equipe de xadrez</a></li>
+                    <li><a href="/home/entidades/camecc/vivencia/sede/">a sede</a></li>
+                    <li><a href="/home/entidades/camecc/vivencia/sinuca/">sinuca</a></li>
+                    <li><a href="/home/entidades/camecc/vivencia/quermecc/">quermecc</a></li>
+                    <li><a href="/home/entidades/camecc/vivencia/truco/">truco</a></li>
+                    <li><a href="/home/entidades/camecc/vivencia/fifa/">fifa</a></li>
+                    <li><a href="/home/entidades/camecc/vivencia/minecraft/">minecraft</a></li>
+                    <li><a href="/home/entidades/camecc/vivencia/xadrez/">equipe de xadrez</a></li>
                 </ul>
             </li>
-            <li><a href="/~camecc/blog/">blog</a></li>
+            <li><a href="/home/entidades/camecc/blog/">blog</a></li>
         </ul>
     </nav>
 </header>
