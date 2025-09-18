@@ -209,8 +209,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--highlight-color);
-    padding: 0.25em 0.5em;
     pointer-events: all;
 }
 
@@ -222,6 +220,13 @@
     display: flex;
     align-items: center;
     background: none;
+    padding: 0.25em 0.5em;
+    border: 2px solid var(--highlight-color);
+}
+
+#toolbox > ul > li > a::before {
+    content: '#';
+    margin-right: 0.25ch;
 }
 
 @media screen and (orientation: landscape) {
