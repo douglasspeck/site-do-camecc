@@ -3,7 +3,7 @@
 <head>
     <title>CAMECC - Campanhas</title>
 
-    <?php include('/~camecc/assets/php/head.php') ?>
+    <?php include('/home/entidades/camecc/public_html/assets/php/head.php'); ?>
     
     <link rel="preload" as="style" onload="this.remove();" href="~camecc/assets/css/~under-construction.css?t=1" type="text/css">
     <link rel="stylesheet" href="/~camecc/assets/css/under-construction.css?t=1"type="text/css">
