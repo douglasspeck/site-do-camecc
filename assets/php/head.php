@@ -1,4 +1,3 @@
-<?php include('/home/entidades/camecc/public_html/config.php'); ?>
 <!-- META TAGS -->
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,11 +11,11 @@
 
 <!-- Stylesheets -->
 
-<link rel="preload" as="style" onload="this.remove();" href="<?php echo $HOME; ?>assets/css/loader.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
-<link rel="stylesheet" href="<?php echo $HOME; ?>assets/css/loader.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
+<link rel="preload" as="style" onload="this.remove();" href="../assets/css/loader.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
+<link rel="stylesheet" href="../assets/css/loader.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
 
-<link rel="preload" as="style" onload="this.remove();" href="<?php echo $HOME; ?>assets/css/header.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
-<link rel="stylesheet" href="<?php echo $HOME; ?>assets/css/header.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
+<link rel="preload" as="style" onload="this.remove();" href="../assets/css/header.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
+<link rel="stylesheet" href="../assets/css/header.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
 
-<link rel="preload" as="style" onload="this.remove();" href="<?php echo $HOME; ?>assets/css/main.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
-<link rel="stylesheet" href="<?php echo $HOME; ?>assets/css/main.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
+<link rel="preload" as="style" onload="this.remove();" href="../assets/css/main.css?t=<?php echo date('YmdHis'); ?>" type="text/css">
+<link rel="stylesheet" href="../assets/css/main.css?t=<?php echo date('YmdHis'); ?>" type="text/css">

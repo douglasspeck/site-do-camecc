@@ -3,7 +3,7 @@
 <head>
     <title>CAMECC - Sobre Nós</title>
 
-    <?php include('/home/entidades/camecc/public_html/assets/php/head.php'); ?>
+    <?php include('../assets/php/head.php'); ?>
 
     <link rel="preload" as="style" onload="this.remove();" href="~camecc/assets/css/~under-construction.css?t=1" type="text/css">
     <link rel="stylesheet" href="/~camecc/assets/css/under-construction.css?t=1"type="text/css">
