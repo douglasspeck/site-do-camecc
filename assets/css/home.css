@@ -73,15 +73,7 @@
 }
 
 #recent-searches > .search:hover {
-    padding-left: 0.25ch;
-    padding-right: 0.25ch;
-    margin-left: -0.25ch;
     background-size: 100% 2px;
-}
-
-#recent-searches > .search:hover .search-icon {
-    left: 100%;
-    transform: translate(0.5em, -75%);
 }
 
 @keyframes cycleTitle {
@@ -294,8 +286,9 @@
     #news-grid > .news {
         grid-column: auto;
         grid-row: 1/3;
-        width: auto;
-        height: 100%;
+        width: 100%;
+	min-height: 100%;
+        height: auto;
         font-size: 1em;
     }
 
