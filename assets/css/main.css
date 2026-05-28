@@ -5,11 +5,17 @@
     --highlight-color: var(--red);
     --aux-color: #8a8080;
     --aux-color-2: #484848;
+
+
+    --color-success:   #2ecc8a;
+    --color-error:     #e05c5c;
+    --color-warn:      #f0a045;
+
     --page-bg: var(--base-color);
 
     --main-font: 'Roboto Slab', serif;
     --aux-font: 'Roboto Condensed', serif;
-    --display-font: 'Bowlby One SC';
+    --mono-font: 'Fira Code', monospace;
 }
 
 *, ::before, ::after {
@@ -40,6 +46,8 @@ html,body {
     color: var(--main-color);
     font-weight: 300;
     transition: all 0.3s linear;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6, p {
