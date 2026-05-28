@@ -19,6 +19,13 @@ function resolve_data_base_dir(): string
     $root = project_root();
 
     $candidates = [
+        // Layout real do backend Python (app/caminhos.py → DATA_DIR = dados/).
+        $root . '/delibera/dados',
+        $root . '/sistemas/delibera/dados',
+        '/home/sistemas/delibera/dados',
+        '/home/public_html/sistemas/delibera/dados',
+
+        // Layouts antigos (compatibilidade).
         $root . '/delibera/api',
         $root . '/sistemas/delibera/api',
         '/home/sistemas/delibera/api',
@@ -31,7 +38,7 @@ function resolve_data_base_dir(): string
         }
     }
 
-    return $root . '/delibera/api';
+    return $root . '/delibera/dados';
 }
 
 function data_base_dir(): string
@@ -70,6 +77,17 @@ function votacao_dir(string $listaAtiva): string
 function deliberacoes_path(string $listaAtiva): string
 {
     return deliberacoes_dir() . DIRECTORY_SEPARATOR . $listaAtiva . '.json';
+}
+
+/**
+ * Caminho das pautas no layout do backend Python:
+ * dados/deliberacoes/<deliberacao>/pautas.json
+ */
+function pautas_file(string $deliberacao): string
+{
+    return deliberacoes_dir()
+        . DIRECTORY_SEPARATOR . $deliberacao
+        . DIRECTORY_SEPARATOR . 'pautas.json';
 }
 
 function votos_path(string $listaAtiva): string
@@ -243,6 +261,86 @@ function extrair_pautas_ativas(array $deliberacao): array
     return [];
 }
 
+/**
+ * Converte um slug ("assembleia-geral-2026") em um título legível
+ * ("Assembleia Geral 2026") para exibição na página de votação.
+ */
+function slug_para_titulo(string $slug): string
+{
+    $texto = str_replace(['-', '_'], ' ', $slug);
+    $texto = trim(preg_replace('/\s+/', ' ', $texto));
+
+    if ($texto === '') {
+        return $slug;
+    }
+
+    // Usa mbstring se disponível; caso contrário, ucwords (slugs são ASCII).
+    // Evita "Call to undefined function mb_convert_case()" em PHP sem mbstring.
+    if (function_exists('mb_convert_case')) {
+        return mb_convert_case($texto, MB_CASE_TITLE, 'UTF-8');
+    }
+
+    return ucwords($texto);
+}
+
+/**
+ * Normaliza uma lista de pautas para o formato consumido pelo votar.js,
+ * descartando pautas encerradas e garantindo os campos esperados.
+ */
+function normalizar_pautas($pautas): array
+{
+    if (!is_array($pautas)) {
+        return [];
+    }
+
+    $saida = [];
+
+    foreach ($pautas as $pauta) {
+        if (!is_array($pauta)) {
+            continue;
+        }
+
+        $status = strtolower((string)($pauta['status'] ?? 'aberta'));
+
+        if (in_array($status, ['fechada', 'encerrada'], true)) {
+            continue;
+        }
+
+        $opcoes = $pauta['opcoes'] ?? [];
+        if (!is_array($opcoes)) {
+            $opcoes = [];
+        }
+
+        $opcoes = array_values(array_filter(
+            array_map(
+                static fn($o) => is_string($o) || is_numeric($o) ? (string)$o : null,
+                $opcoes
+            ),
+            static fn($o) => $o !== null && $o !== ''
+        ));
+
+        $saida[] = [
+            'id' => $pauta['id'] ?? null,
+            'titulo' => (string)($pauta['titulo'] ?? ''),
+            'descricao' => (string)($pauta['descricao'] ?? ''),
+            'opcoes' => $opcoes,
+            'limite' => (int)($pauta['limite'] ?? 1),
+            'status' => $status !== '' ? $status : 'aberta',
+        ];
+    }
+
+    return $saida;
+}
+
+/**
+ * Mapeia o estado público (do backend Python ou do fallback de arquivos)
+ * para o contrato único consumido pelo votar.js:
+ *   { ok, ativa, mensagem, lista_ativa, deliberacao:{id,titulo,descricao}|null, pautas_ativas[] }
+ *
+ * Tolera dois formatos de "deliberacao":
+ *   - string (slug) → modelo atual do backend Python;
+ *   - objeto {titulo, descricao, ...} → modelo antigo.
+ */
 function normalizar_estado_publico(array $response): array
 {
     $publico = $response['publico'] ?? $response;
@@ -251,29 +349,51 @@ function normalizar_estado_publico(array $response): array
         $publico = [];
     }
 
-    $deliberacao = $publico['deliberacao'] ?? null;
-    if (!is_array($deliberacao)) {
-        $deliberacao = null;
+    $ok = (bool)($publico['ok'] ?? $response['ok'] ?? true);
+    $ativa = (bool)($publico['ativa'] ?? false);
+
+    // "lista" (novo) ou "lista_ativa" (antigo).
+    $lista_ativa = $publico['lista_ativa'] ?? $publico['lista'] ?? null;
+
+    $delibRaw = $publico['deliberacao'] ?? null;
+
+    $deliberacao = null;
+
+    if (is_array($delibRaw)) {
+        $idDelib = $delibRaw['id'] ?? $lista_ativa ?? '';
+        $deliberacao = [
+            'id' => $idDelib,
+            'titulo' => (string)($delibRaw['titulo'] ?? slug_para_titulo((string)$idDelib)),
+            'descricao' => (string)($delibRaw['descricao'] ?? ''),
+        ];
+    } elseif (is_string($delibRaw) && trim($delibRaw) !== '') {
+        $deliberacao = [
+            'id' => $delibRaw,
+            'titulo' => slug_para_titulo($delibRaw),
+            'descricao' => '',
+        ];
     }
 
-    $pautas_ativas = $publico['pautas_ativas'] ?? [];
-    if (!is_array($pautas_ativas)) {
-        $pautas_ativas = [];
-    }
+    // Pautas: "pautas" (novo), "pautas_ativas" (antigo) ou aninhadas na deliberação.
+    $pautasRaw = $publico['pautas'] ?? $publico['pautas_ativas'] ?? [];
 
-    if ($pautas_ativas === [] && is_array($deliberacao)) {
-        if (isset($deliberacao['pautas_ativas']) && is_array($deliberacao['pautas_ativas'])) {
-            $pautas_ativas = array_values(array_filter($deliberacao['pautas_ativas'], 'is_array'));
-        } elseif (isset($deliberacao['pauta_ativa']) && is_array($deliberacao['pauta_ativa'])) {
-            $pautas_ativas = [$deliberacao['pauta_ativa']];
+    if ((!is_array($pautasRaw) || $pautasRaw === []) && is_array($delibRaw)) {
+        if (isset($delibRaw['pautas']) && is_array($delibRaw['pautas'])) {
+            $pautasRaw = $delibRaw['pautas'];
+        } elseif (isset($delibRaw['pautas_ativas']) && is_array($delibRaw['pautas_ativas'])) {
+            $pautasRaw = $delibRaw['pautas_ativas'];
+        } elseif (isset($delibRaw['pauta_ativa']) && is_array($delibRaw['pauta_ativa'])) {
+            $pautasRaw = [$delibRaw['pauta_ativa']];
         }
     }
 
+    $pautas_ativas = normalizar_pautas($pautasRaw);
+
     return [
-        'ok' => (bool)($publico['ok'] ?? $response['ok'] ?? true),
-        'ativa' => (bool)($publico['ativa'] ?? false),
+        'ok' => $ok,
+        'ativa' => $ativa && $deliberacao !== null,
         'mensagem' => (string)($publico['mensagem'] ?? ''),
-        'lista_ativa' => $publico['lista_ativa'] ?? $publico['lista'] ?? null,
+        'lista_ativa' => $lista_ativa,
         'deliberacao' => $deliberacao,
         'pautas_ativas' => $pautas_ativas,
     ];
@@ -297,62 +417,28 @@ function build_public_state_from_files(): array
         ];
     }
 
-    $delibPath = deliberacoes_path($lista_ativa);
-    if (!is_file($delibPath)) {
-        return [
-            'ok' => true,
-            'ativa' => false,
-            'mensagem' => 'Dados da deliberação não encontrados.',
-            'lista_ativa' => $lista_ativa,
-            'deliberacao' => null,
-            'pautas_ativas' => [],
-        ];
-    }
+    // Backend Python: dados/deliberacoes/<deliberacao>/pautas.json (lista achatada).
+    $pautasFile = pautas_file($deliberacao_atual);
 
-    $deliberacoesData = load_json($delibPath, ['deliberacoes' => []]);
-    if (!is_array($deliberacoesData)) {
-        $deliberacoesData = ['deliberacoes' => []];
-    }
+    $pautas = is_file($pautasFile)
+        ? load_json($pautasFile, [])
+        : [];
 
-    $deliberacao = null;
-    foreach (($deliberacoesData['deliberacoes'] ?? []) as $item) {
-        if (is_array($item) && (($item['id'] ?? null) == $deliberacao_atual)) {
-            $deliberacao = $item;
-            break;
-        }
+    if (!is_array($pautas)) {
+        $pautas = [];
     }
-
-    if ($deliberacao === null) {
-        return [
-            'ok' => true,
-            'ativa' => false,
-            'mensagem' => 'Deliberação não encontrada.',
-            'lista_ativa' => $lista_ativa,
-            'deliberacao' => null,
-            'pautas_ativas' => [],
-        ];
-    }
-
-    if (!($deliberacao['aberta'] ?? false)) {
-        return [
-            'ok' => true,
-            'ativa' => false,
-            'mensagem' => 'Esta deliberação está encerrada.',
-            'lista_ativa' => $lista_ativa,
-            'deliberacao' => $deliberacao,
-            'pautas_ativas' => [],
-        ];
-    }
-
-    $pautasAtivas = extrair_pautas_ativas($deliberacao);
 
     return [
         'ok' => true,
         'ativa' => true,
-        'mensagem' => (string)($deliberacao['mensagem'] ?? 'Deliberação ativa.'),
+        'mensagem' => 'Deliberação ativa.',
         'lista_ativa' => $lista_ativa,
-        'deliberacao' => $deliberacao,
-        'pautas_ativas' => $pautasAtivas,
+        'deliberacao' => [
+            'id' => $deliberacao_atual,
+            'titulo' => slug_para_titulo($deliberacao_atual),
+            'descricao' => '',
+        ],
+        'pautas_ativas' => normalizar_pautas($pautas),
     ];
 }
 

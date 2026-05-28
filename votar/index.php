@@ -12,13 +12,67 @@
 
     <style>
 
+            /* ── Base de rem ───────────────────────────────────────────
+             * Este cartão foi desenhado para um root de 16px, mas o
+             * main.css do site usa 18px (retrato) e 24px (paisagem), o
+             * que esticava todos os espaçamentos em rem (~1.5x) enquanto
+             * as medidas em px (largura 520px, ícones, bordas) não
+             * acompanhavam — quebrando as proporções. Fixamos o root em
+             * 16px só nesta página (:root vence o main.css por
+             * especificidade). */
+            :root {
+                font-size: 16px;
+            }
+
+            /* ── Design tokens (marca CAMECC) ──────────────────────────
+             * A página foi desenhada sobre estas variáveis, mas elas não
+             * eram definidas — então o cartão renderizava sem estilo.
+             * Aqui ancoramos tudo na identidade do site: off-white,
+             * grafite e vermelho. Reaproveita os tokens de main.css. */
+            #votar-page {
+                --color-bg:        var(--base-color, #faf5f5);
+                --color-surface:   #ffffff;
+                --color-border:    #e7dede;
+                --color-text:      var(--main-color, #101010);
+                --color-muted:     var(--aux-color, #8a8080);
+
+                --color-accent:    var(--red, #c71818);
+                --color-accent-lo: rgba(199, 24, 24, 0.07);
+                --color-accent-md: rgba(199, 24, 24, 0.18);
+
+                --font-display: var(--main-font, 'Roboto Slab', Georgia, serif);
+                --font-body:    var(--aux-font, 'Roboto Condensed', system-ui, sans-serif);
+                --font-mono:    'Fira Code', ui-monospace, 'SF Mono', monospace;
+
+                --r-card:  16px;
+                --r-btn:   12px;
+                --r-input: 12px;
+
+                --shadow-card:
+                    0 1px 2px rgba(16, 16, 16, 0.04),
+                    0 10px 30px -14px rgba(16, 16, 16, 0.22);
+            }
+
+            /* ── Box model ─────────────────────────────────────────────
+             * border-box só dentro do main (campo de código e botão usam
+             * width:100% + padding + borda e estouravam o container).
+             * Escopado ao main para não afetar o cabeçalho fixo, que
+             * depende de width:90% + padding:5% somarem 100%. */
+            #votar-page main *,
+            #votar-page main *::before,
+            #votar-page main *::after {
+                box-sizing: border-box;
+            }
+
             /* ── Layout ────────────────────────────────────────────── */
             main {
-                flex: 1;
                 display: flex;
-                align-items: center;
                 justify-content: center;
-                padding: 2rem 1.25rem 4rem;
+                align-items: flex-start;
+                min-height: 100vh;
+                box-sizing: border-box;
+                /* afasta o conteúdo do cabeçalho fixo (~16vh, padrão do site) */
+                padding: clamp(7rem, 17vh, 11rem) 1.25rem 4rem;
             }
 
             .vote-shell {
@@ -27,7 +81,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 1.5rem;
-                animation: fadeUp .55s cubicolor-bezier(.22,1,.36,1) both;
+                animation: fadeUp .55s cubic-bezier(.22,1,.36,1) both;
             }
 
             @keyframes fadeUp {
@@ -75,7 +129,7 @@
                 position: absolute;
                 inset: 0;
                 background: linear-gradient(135deg,
-                    rgba(79,110,247,.05) 0%,
+                    rgba(199,24,24,.05) 0%,
                     transparent 60%);
                 pointer-events: none;
             }
@@ -247,7 +301,7 @@
                 letter-spacing: .02em;
                 cursor: pointer;
                 transition: opacity .18s, transform .12s, box-shadow .18s;
-                box-shadow: 0 4px 20px rgba(79,110,247,.35);
+                box-shadow: 0 4px 20px rgba(199,24,24,.30);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -255,7 +309,7 @@
             }
             .btn-submit:hover:not(:disabled) {
                 opacity: .9;
-                box-shadow: 0 6px 28px rgba(79,110,247,.45);
+                box-shadow: 0 6px 28px rgba(199,24,24,.42);
             }
             .btn-submit:active:not(:disabled) { transform: scale(.98); }
             .btn-submit:disabled {
@@ -296,7 +350,7 @@
                 justify-content: center;
                 color: var(--color-success);
                 font-size: 1.8rem;
-                animation: popIn .4s cubicolor-bezier(.34,1.56,.64,1) both;
+                animation: popIn .4s cubic-bezier(.34,1.56,.64,1) both;
             }
             @keyframes popIn {
                 from { transform: scale(.4); opacity: 0; }
